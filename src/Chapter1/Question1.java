@@ -1,5 +1,7 @@
 package Chapter1;
 
+import java.util.Arrays;
+
 public class Question1 {
 
 	public Question1() {
@@ -7,7 +9,7 @@ public class Question1 {
 	}
 
 	// 1.1 Is Unique
-	public void runCode1() {
+	public void runCode1_1() {
 		String a = "cates";
 		String b = "doges";
 		String c = "sneks";
@@ -34,6 +36,35 @@ public class Question1 {
 			charArray[charVal] = true;	
 		}
 		return true;
+	}
+	
+	// 1.2 Is Permutation
+	public void runCode1_2() {
+		String one = "god";
+		String two = "dog";
+		String three = "cate";
+		
+		System.out.println(one + " and " + two + (isPermutation(one,two)? " is Permutation" : " is Not"));
+		System.out.println(three + " and " + two + (isPermutation(three,two)? " is Permutation" : " is Not"));
+		
+	}
+	
+	public boolean isPermutation(String str1, String str2) {
+		if (str1.length() != str2.length()) {
+			return false;
+		}
+		
+		char[] oneChars = str1.toCharArray();
+		char[] twoChars = str2.toCharArray();
+		Arrays.sort(oneChars);
+		Arrays.sort(twoChars);
+		String one = new String(oneChars);
+		String two = new String(twoChars);
+		if (one.equalsIgnoreCase(two)) {
+			return true;
+		}
+		
+		return false;
 	}
 
 }
